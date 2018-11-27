@@ -35,7 +35,7 @@ estimate_pi <- function(B = 5000, seed = 10){
     )
 
 
-    points <- points %>% mutate(inside = ifelse(sqrt(x^2 + y^2 <= 1), TRUE, FALSE))
+    points$inside <- ifelse(sqrt(points$x^2 + points$y^2 <= 1), TRUE, FALSE)
 
     # Approximation of pi
     estimated_pi = 4*(sum(points$inside)/B)
@@ -64,6 +64,13 @@ estimate_pi <- function(B = 5000, seed = 10){
 #' @author Luisa Pricken
 #' @author Ameni Rouatbi
 #' @importFrom ggplot2 ggplot
+#' @importFrom ggplot2 geom_point
+#' @importFrom ggplot2 geom_rect
+#' @importFrom ggplot2 geom_path
+#' @importFrom ggplot2 aes
+#' @importFrom ggplot2 xlim
+#' @importFrom ggplot2 ylim
+#' @importFrom ggplot2 theme
 #' @export
 #' @examples
 #' obj <- estimate_pi()
