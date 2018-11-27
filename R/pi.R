@@ -71,6 +71,7 @@ estimate_pi <- function(B = 5000, seed = 10){
 #' @importFrom ggplot2 xlim
 #' @importFrom ggplot2 ylim
 #' @importFrom ggplot2 theme
+#' @importFrom ggforce geom_circle
 #' @export
 #' @examples
 #' obj <- estimate_pi()

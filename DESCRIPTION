@@ -21,8 +21,7 @@ Imports:
     tidyverse (>= 1.2.1),
     Rcpp,
     shiny (>= 1.2.0),
-    ggforce 
-    
+    ggforce
 RoxygenNote: 6.1.1
 LinkingTo: 
     Rcpp

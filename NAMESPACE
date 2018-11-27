@@ -3,6 +3,7 @@
 S3method(plot,pi)
 export(estimate_pi)
 export(estimate_pi2)
+importFrom(ggforce,geom_circle)
 importFrom(ggplot2,aes)
 importFrom(ggplot2,geom_path)
 importFrom(ggplot2,geom_point)
