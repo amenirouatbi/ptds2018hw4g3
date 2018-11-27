@@ -79,9 +79,9 @@ plot.pi <- function(x) {
     points <- x[["points"]]
 
     circle <- data.frame(
-        x = c(seq(-1, 1, 0.01), seq(1, -1, -0.01)),
-        y = c(sqrt(1 - seq(-1, 1, 0.01) ^ 2),
-              -sqrt(1 - seq(1, -1, -0.01) ^ 2))
+        x = 0,
+        y = 0,
+        r = 1
     )
 
     # plot points
@@ -89,12 +89,11 @@ plot.pi <- function(x) {
         geom_point(aes(x = x, y = y, color = inside)) +
         geom_rect(aes(xmin = -1, xmax = 1, ymin = -1, ymax = 1),
                   color = "black", fill = NA) +
-        geom_path(mapping = aes(x, y), data = circle) +
+        geom_circle(aes(x0=x, y0=y, r=r), data = circle) +
         xlim(-1, 1) +
         ylim(-1, 1) +
         theme(aspect.ratio = 1)
 }
-
 
 #' @title Estimate Pi from random sampling with Rcpp integration
 #'

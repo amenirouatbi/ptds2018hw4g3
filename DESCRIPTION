@@ -20,7 +20,9 @@ Imports:
     dplyr (>= 0.7.6),
     tidyverse (>= 1.2.1),
     Rcpp,
-    shiny (>= 1.2.0)
+    shiny (>= 1.2.0),
+    ggforce 
+    
 RoxygenNote: 6.1.1
 LinkingTo: 
     Rcpp
