@@ -94,3 +94,36 @@ plot.pi <- function(x) {
         ylim(-1, 1) +
         theme(aspect.ratio = 1)
 }
+
+
+
+
+estimate_pi2 <- function(B = 5000, seed = 10){
+    # Control seed
+    set.seed(seed)
+
+    # Simulate B points
+    points <- data.frame(
+        x = runif(n = B, min = -1, max = 1),
+        y = runif(n = B, min = -1, max = 1)
+        )
+
+    for(i in 1:B){
+        x[i] <- ifelse(sqrt(points[i,1]^2 + points[i,2]^2 <= 1), TRUE, FALSE)
+        }
+
+
+    # Approximation of pi
+    estimated_pi = 4*(sum(points$inside)/B)
+
+    # create a new list
+    rval <- list(
+        estimated_pi = estimated_pi,
+        points = points
+    )
+
+    # assign pi class to rval
+    class(rval) <- "pi"
+    # return rval
+    return(rval)
+}
