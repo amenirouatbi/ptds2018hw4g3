@@ -63,15 +63,7 @@ estimate_pi <- function(B = 5000, seed = 10){
 #' @author Bart Roes
 #' @author Luisa Pricken
 #' @author Ameni Rouatbi
-#' @importFrom ggplot2 ggplot
-#' @importFrom ggplot2 geom_point
-#' @importFrom ggplot2 geom_rect
-#' @importFrom ggplot2 geom_path
-#' @importFrom ggplot2 aes
-#' @importFrom ggplot2 xlim
-#' @importFrom ggplot2 ylim
-#' @importFrom ggplot2 theme
-#' @importFrom ggforce geom_circle
+#'
 #' @export
 #' @examples
 #' obj <- estimate_pi()
@@ -86,14 +78,14 @@ plot.pi <- function(x) {
     )
 
     # plot points
-    ggplot(points) +
-        geom_point(aes(x = x, y = y, color = inside)) +
-        geom_rect(aes(xmin = -1, xmax = 1, ymin = -1, ymax = 1),
+    ggplot2::ggplot(points) +
+        ggplot2::geom_point(ggplot2::aes(x = x, y = y, color = inside)) +
+        ggplot2::geom_rect(aes(xmin = -1, xmax = 1, ymin = -1, ymax = 1),
                   color = "black", fill = NA) +
-        geom_circle(aes(x0=x, y0=y, r=r), data = circle) +
-        xlim(-1, 1) +
-        ylim(-1, 1) +
-        theme(aspect.ratio = 1)
+        ggforce::geom_circle(ggplot2::aes(x0=x, y0=y, r=r), data = circle) +
+        ggplot2::xlim(-1, 1) +
+        ggplot2::ylim(-1, 1) +
+        ggplot2::theme(aspect.ratio = 1)
 }
 
 #' @title Estimate Pi from random sampling with Rcpp integration
