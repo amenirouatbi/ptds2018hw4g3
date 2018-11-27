@@ -16,7 +16,10 @@ Encoding: UTF-8
 LazyData: true
 Depends: R(>= 3.5.0)
 Imports:
-    ggplot2(>= 3.0.0), 
-    dplyr(>= 0.7.6), 
-    tidyverse(>= 1.2.1)
+    ggplot2 (>= 3.0.0),
+    dplyr (>= 0.7.6),
+    tidyverse (>= 1.2.1),
+    Rcpp
 RoxygenNote: 6.1.1
+LinkingTo: 
+    Rcpp
