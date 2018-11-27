@@ -1,3 +1,28 @@
+#' @title Estimate Pi from random sampling
+#'
+#' @description Compute an approximation of pi by drawing x and y coordinates
+#' from a uniform distribution and checking whether or not they fall inside a
+#' unit circle.
+#' @param B A \code{numeric} (integer) used to denote the number of sample
+#' coordinates used to approximate pi
+#' @param seed A \code{numeric} used to control the seed of the random number
+#' generator used by this function.
+#' @return A \code{list} containing the following attributes:
+#' \describe{
+#'      \item{estimated_pi}{Estimated value of pi }
+#'      \item{points}{Dataframe of the generated coordinates with an indication
+#'      whether or not the coordinate is inside the circle}
+#' }
+#' @author Vanessa Armistead
+#' @author Bart Roes
+#' @author Luisa Pricken
+#' @author Ameni Rouatbi
+#' @importFrom stats runif
+#' @export
+#' @examples
+#' estimate_pi(B=10)
+
+
 estimate_pi <- function(B = 5000, seed = 10){
     # Control seed
     set.seed(seed)
@@ -28,6 +53,21 @@ estimate_pi <- function(B = 5000, seed = 10){
 }
 
 
+
+#' @title Plot objects of class pi
+#' @description Creating a plot representing the random coordinates created by
+#' the function "estimate_pi".
+#' @param x A \code{list} of type pi
+#' @return A \code{plot} of the object
+#' @author Vanessa Armistead
+#' @author Bart Roes
+#' @author Luisa Pricken
+#' @author Ameni Rouatbi
+#' @importFrom ggplot2 ggplot
+#' @export
+#' @examples
+#' obj <- estimate_pi()
+#' plot(obj)
 plot.pi <- function(x) {
     points <- x[["points"]]
 
@@ -45,6 +85,5 @@ plot.pi <- function(x) {
         geom_path(mapping = aes(x, y), data = circle) +
         xlim(-1, 1) +
         ylim(-1, 1) +
-        theme(aspect.ratio = 1) %>%
-        print()
+        theme(aspect.ratio = 1)
 }
