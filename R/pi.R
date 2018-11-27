@@ -108,13 +108,12 @@ estimate_pi2 <- function(B = 5000, seed = 10){
         y = runif(n = B, min = -1, max = 1)
         )
 
-    for(i in 1:B){
-        x[i] <- ifelse(sqrt(points[i,1]^2 + points[i,2]^2 <= 1), TRUE, FALSE)
-        }
+    points <- as.matrix(points)
 
+    logic.vec <- is_inside(points = points)
 
     # Approximation of pi
-    estimated_pi = 4*(sum(points$inside)/B)
+    estimated_pi = 4*(sum(logic.vec)/B)
 
     # create a new list
     rval <- list(

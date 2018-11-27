@@ -10,10 +10,13 @@ LogicalVector is_inside(NumericMatrix points) {
     // for loop in which `inside` is defined
     for(int i(0); i<points.nrow(); i++){
 
-           if((std::sqrt(std::pow(points(i,0),2) + std::pow(points(i,1),2))) <= 1) {
-            true; } else {
-                false;
-        }
+           double x0 = points(i,0);
+           double y0 = points(i,1);
+
+           if(std::sqrt(x0*x0+y0*y0) <= 1){
+               inside[i] = true; } else {
+                   inside[i] = false;
+               }
     }
 
     return inside;
