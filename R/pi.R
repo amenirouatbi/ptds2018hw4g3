@@ -113,7 +113,7 @@ estimate_pi2 <- function(B = 5000, seed = 10){
     logic.vec <- is_inside(points = points)
 
     # Approximation of pi
-    estimated_pi = 4*(sum(logic.vec)/B)
+    estimated_pi = 4*(sum(is_inside(points = points))/B)
 
     # create a new list
     rval <- list(
@@ -126,3 +126,5 @@ estimate_pi2 <- function(B = 5000, seed = 10){
     # return rval
     return(rval)
 }
+
+
