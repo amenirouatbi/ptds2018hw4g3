@@ -5,17 +5,19 @@ shinyServer(function(input, output) {
 
     simulate <- reactive({
 
-        start.time <- Sys.time()
+        time.taken <- system.time({
+            if(input$method == "estimate_pi") {
+                my_pi <- estimate_pi(input$B, input$seed)
+            } else {
+                my_pi <- estimate_pi2(input$B, input$seed)
+            }
 
-        if(input$method == "estimate_pi") {
-            estimate_pi(input$B, input$seed)
-        } else {
-            estimate_pi2(input$B, input$seed)
-        }
+        })
 
-        end.time <- Sys.time()
 
-        time.taken <- end.time-start.time
+        list(
+
+        )
 
     })
 
