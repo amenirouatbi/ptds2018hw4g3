@@ -13,5 +13,5 @@ runDemo <- function() {
 
 }
 
-devtools::document()
+
 
