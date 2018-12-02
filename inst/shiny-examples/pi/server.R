@@ -23,55 +23,39 @@ shinyServer(function(input, output) {
 
         })
 
-    time <- reactive({
-
-        system.time({
-            if(match(input$method, c("estimate_pi", "estimate_pi2")) == 1) {
-
-                B <- input$B
-                seed <- input$seed
-                my_pi <- estimate_pi(B, seed)
-                return(my_pi)
-
-            } else {
-
-                B <- input$B
-                seed <- input$seed
-                my_pi <- estimate_pi2(B, seed)
-                return(my_pi)
-            }
-          })
-
-        return()
-    })
-
 
     output$plot <- renderPlot({
         plot(simulate())
     })
 
     output$time <- renderPrint({
-        # extract the time of the execution
-        #cat(c("The time taken to run the code is:",time()))
-        print(system.time( if(match(input$method, c("estimate_pi", "estimate_pi2")) == 1) {
 
-            B <- input$B
-            seed <- input$seed
-            my_pi <- estimate_pi(B, seed)
+        cat(
+            c("The CPU times for respectively the user,
+              system and the 'real' elapsed time are:","\n" ,system.time(
 
+                if(match(input$method, c("estimate_pi", "estimate_pi2")) == 1) {
 
-        } else {
+                    B <- input$B
+                    seed <- input$seed
+                    my_pi <- estimate_pi(B, seed)
+                    plot(my_pi)
 
-            B <- input$B
-            seed <- input$seed
-            my_pi <- estimate_pi2(B, seed)
+                    } else {
 
-        }))
+                    B <- input$B
+                    seed <- input$seed
+                    my_pi <- estimate_pi2(B, seed)
+                    plot(my_pi)
+                    }
+                )[1:3]
+              )
+            )
     })
 
     output$pi <- renderPrint({
         # extract the estimated value
-        cat(c("The esimated value of pi is:",simulate()$estimated_pi))
+        cat(c("The estimated value of pi is:",simulate()$estimated_pi))
     })
 
 })
