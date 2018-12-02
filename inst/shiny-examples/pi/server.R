@@ -11,7 +11,6 @@ shinyServer(function(input, output) {
                 B <- input$B
                 seed <- input$seed
                 my_pi <- estimate_pi(B, seed)
-                time.taken <- system.time(estimate_pi(B, seed))
                 return(my_pi)
 
             } else {
@@ -19,7 +18,6 @@ shinyServer(function(input, output) {
                 B <- input$B
                 seed <- input$seed
                 my_pi <- estimate_pi2(B, seed)
-                time.taken <- system.time(estimate_pi(B, seed))
                 return(my_pi)
             }
 
@@ -54,7 +52,21 @@ shinyServer(function(input, output) {
 
     output$time <- renderPrint({
         # extract the time of the execution
-        cat(c("The time taken to run the code is:",time()$time.taken))
+        #cat(c("The time taken to run the code is:",time()))
+        print(system.time( if(match(input$method, c("estimate_pi", "estimate_pi2")) == 1) {
+
+            B <- input$B
+            seed <- input$seed
+            my_pi <- estimate_pi(B, seed)
+
+
+        } else {
+
+            B <- input$B
+            seed <- input$seed
+            my_pi <- estimate_pi2(B, seed)
+
+        }))
     })
 
     output$pi <- renderPrint({
