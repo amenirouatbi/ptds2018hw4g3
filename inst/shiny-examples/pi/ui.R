@@ -23,7 +23,9 @@ shinyUI(fluidPage(
 
         mainPanel(
 
-            plotOutput("plot"),
+            plotOutput("plot"
+                       #,height = 400, width = 400
+                       ),
 
             textOutput("time"),
 
