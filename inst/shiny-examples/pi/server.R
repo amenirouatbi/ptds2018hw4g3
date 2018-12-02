@@ -1,27 +1,27 @@
-library(shiny)
-library(ptds2018hw4g3)
-library(ggplot2)
+library("shiny")
+library("ptds2018hw4g3")
 
 shinyServer(function(input, output) {
 
     simulate <- reactive({
 
-        my_pi <- if(match(input$method, c("estimate_pi", "estimate_pi2")) == 1) {
+        my_pi <- if(match(input$method,
+                          c("estimate_pi", "estimate_pi2")) == 1) {
 
-                B <- input$B
-                seed <- input$seed
-                my_pi <- estimate_pi(B, seed)
-                return(my_pi)
+            B <- input$B
+            seed <- input$seed
+            my_pi <- estimate_pi(B, seed)
+            return(my_pi)
 
-            } else {
+        } else {
 
-                B <- input$B
-                seed <- input$seed
-                my_pi <- estimate_pi2(B, seed)
-                return(my_pi)
-            }
+            B <- input$B
+            seed <- input$seed
+            my_pi <- estimate_pi2(B, seed)
+            return(my_pi)
+        }
 
-        })
+    })
 
 
     output$plot <- renderPlot({
@@ -34,23 +34,24 @@ shinyServer(function(input, output) {
             c("The CPU times for respectively the user,
               system and the 'real' elapsed time are:","\n" ,system.time(
 
-                if(match(input$method, c("estimate_pi", "estimate_pi2")) == 1) {
+                  if(match(input$method,
+                           c("estimate_pi", "estimate_pi2")) == 1) {
 
-                    B <- input$B
-                    seed <- input$seed
-                    my_pi <- estimate_pi(B, seed)
-                    plot(my_pi)
+                      B <- input$B
+                      seed <- input$seed
+                      my_pi <- estimate_pi(B, seed)
+                      plot(my_pi)
 
-                    } else {
+                  } else {
 
-                    B <- input$B
-                    seed <- input$seed
-                    my_pi <- estimate_pi2(B, seed)
-                    plot(my_pi)
-                    }
-                )[1:3]
-              )
+                      B <- input$B
+                      seed <- input$seed
+                      my_pi <- estimate_pi2(B, seed)
+                      plot(my_pi)
+                  }
+              )[1:3]
             )
+        )
     })
 
     output$pi <- renderPrint({

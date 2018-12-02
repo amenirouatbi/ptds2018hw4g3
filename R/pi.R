@@ -80,8 +80,9 @@ plot.pi <- function(x) {
     # plot points
     ggplot2::ggplot(points) +
         ggplot2::geom_point(ggplot2::aes(x = x, y = y, color = inside)) +
-        ggplot2::geom_rect(ggplot2::aes(xmin = -1, xmax = 1, ymin = -1, ymax = 1),
-                  color = "black", fill = NA) +
+        ggplot2::geom_rect(ggplot2::aes(xmin = -1, xmax = 1,
+                                        ymin = -1, ymax = 1),
+                           color = "black", fill = NA) +
         ggforce::geom_circle(ggplot2::aes(x0=x, y0=y, r=r), data = circle) +
         ggplot2::xlim(-1, 1) +
         ggplot2::ylim(-1, 1) +
@@ -120,7 +121,7 @@ estimate_pi2 <- function(B = 5000, seed = 10){
     points <- data.frame(
         x = runif(n = B, min = -1, max = 1),
         y = runif(n = B, min = -1, max = 1)
-        )
+    )
 
     points <- as.matrix(points)
 

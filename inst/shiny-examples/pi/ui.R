@@ -1,4 +1,4 @@
-library(shiny)
+library("shiny")
 
 shinyUI(fluidPage(
 
@@ -23,9 +23,7 @@ shinyUI(fluidPage(
 
         mainPanel(
 
-            plotOutput("plot"
-                       #,height = 400, width = 400
-                       ),
+            plotOutput("plot"),
 
             textOutput("time"),
 
