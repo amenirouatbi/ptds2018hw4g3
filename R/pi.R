@@ -130,11 +130,13 @@ estimate_pi2 <- function(B = 5000, seed = 10){
     estimated_pi = 4*(sum(is_inside(points = points))/B)
 
     points <- as.data.frame(points)
+    points$inside <- logic.vec
+
 
     # create a new list
     rval <- list(
         estimated_pi = estimated_pi,
-        points = points
+        points = as.data.frame(points)
     )
 
     # assign pi class to rval
