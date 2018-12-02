@@ -15,8 +15,10 @@ shinyServer(function(input, output) {
         })
 
 
-        list(
-
+        return(
+            list(
+            time.taken, my_pi
+         )
         )
 
     })
