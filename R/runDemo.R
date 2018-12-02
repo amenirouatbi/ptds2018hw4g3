@@ -12,6 +12,3 @@ runDemo <- function() {
     shiny::runApp(appDir, display.mode = "normal")
 
 }
-
-
-
