@@ -11,9 +11,9 @@ Authors@R: c(
     role = "aut")
     )
 Maintainer: The package maintainer <vanessa.armistead@unil.ch>
-Description: This package allows you to estimate the value of pi by sampling
-coordinates from a uniform distribution and checking whether or not they fall
-inside a unit circle. 
+Description: This package allows you to estimate the value of pi by sampling    
+    coordinates from a uniform distribution and checking whether or not they
+    fall inside a unit circle. 
 License: GNU AFFERO GENERAL PUBLIC LICENSE
 Encoding: UTF-8
 LazyData: true
