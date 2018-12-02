@@ -129,6 +129,8 @@ estimate_pi2 <- function(B = 5000, seed = 10){
     # Approximation of pi
     estimated_pi = 4*(sum(is_inside(points = points))/B)
 
+    points <- as.data.frame(points)
+
     # create a new list
     rval <- list(
         estimated_pi = estimated_pi,
