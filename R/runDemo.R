@@ -1,3 +1,13 @@
+#' @title Run Shiny app
+#'
+#' @description This function allows for launching the Shiny app when the
+#' package is loaded.
+#' This app will allow you to compare the two different functions that estimate
+#' pi.
+#' @author Vanessa Armistead
+#' @author Bart Roes
+#' @author Luisa Pricken
+#' @author Ameni Rouatbi
 #' @export
 runDemo <- function() {
 
