@@ -80,7 +80,7 @@ plot.pi <- function(x) {
     # plot points
     ggplot2::ggplot(points) +
         ggplot2::geom_point(ggplot2::aes(x = x, y = y, color = inside)) +
-        ggplot2::geom_rect(aes(xmin = -1, xmax = 1, ymin = -1, ymax = 1),
+        ggplot2::geom_rect(ggplot2::aes(xmin = -1, xmax = 1, ymin = -1, ymax = 1),
                   color = "black", fill = NA) +
         ggforce::geom_circle(ggplot2::aes(x0=x, y0=y, r=r), data = circle) +
         ggplot2::xlim(-1, 1) +
