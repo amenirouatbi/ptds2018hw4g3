@@ -1,17 +1,20 @@
 Package: ptds2018hw4g3
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Estimation of pi from random sampling
 Version: 0.1.0
 Authors@R: c(
-    person("Vanessa", "Armistead", email = "vanessa.armistead@unil.ch", role = c("aut","cre")),
+    person("Vanessa", "Armistead", email = "vanessa.armistead@unil.ch",
+    role = c("aut","cre")),
     person("Bart", "Roes", email = "bart.roes@unil.ch", role = "aut"),
     person("Ameni", "Rouatbi", email = "ameni.rouatbi@unil.ch", role = "aut"),
-    person("Luisa", "Pricken", email = "luisa.prickenbrandao@unil.ch", role = "aut")
+    person("Luisa", "Pricken", email = "luisa.prickenbrandao@unil.ch",
+    role = "aut")
     )
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Maintainer: The package maintainer <vanessa.armistead@unil.ch>
+Description: This package allows you to estimate the value of pi by sampling
+coordinates from a uniform distribution and checking whether or not they fall
+inside a unit circle. 
+License: GNU AFFERO GENERAL PUBLIC LICENSE
 Encoding: UTF-8
 LazyData: true
 Depends: R(>= 3.4.3)
